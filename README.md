@@ -1,4 +1,4 @@
-# Project_FrontEnd_Notes_App_BackEnd_Fundamentals
+# Project_FrontEnd_NotesApp_BackEnd_Fundamentals
 Proyek aplikasi catatan sederhana yang dibuat sebagai bagian dari pembelajaran di Dicoding.  
 Aplikasi ini terdiri dari dua bagian utama: frontend dan backend
 
