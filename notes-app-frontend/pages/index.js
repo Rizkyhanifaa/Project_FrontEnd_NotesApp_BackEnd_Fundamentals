@@ -5,7 +5,7 @@ import AnnounceBar from '../components/Common/AnnounceBar';
 import Notes from '../components/Notes';
 import FloatingButton from '../components/Common/FloatingButton';
 
-import styles from './Home.module.scss';
+import styles from '../Home.module.scss';
 import { getBaseURL } from '../lib/utils/storage';
 import fetcher from '../lib/utils/fetcher';
 
