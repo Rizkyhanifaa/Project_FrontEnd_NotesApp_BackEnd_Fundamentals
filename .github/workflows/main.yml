@@ -35,5 +35,5 @@ jobs:
         working-directory: notes-app-back-end
 
       - name: Run Jest tests
-        run: npm test
+        run: npx test
         working-directory: notes-app-back-end
