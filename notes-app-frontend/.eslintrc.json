@@ -6,7 +6,10 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "airbnb"
+        "airbnb",
+        "next",
+        "next/core-web-vitals",
+        "plugin:next/recommended"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -16,7 +19,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "next"
     ],
     "rules": {
         "react/jsx-props-no-spreading": 0,
@@ -29,6 +33,7 @@
         "jsx-a11y/no-noninteractive-element-interactions": 0,
         "no-console": 0,
         "no-alert": 0,
-        "class-methods-use-this": 0
+        "class-methods-use-this": 0,
+        "linebreak-style": ["error", "unix"]
     }
 }

@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 8081"
+    "start": "next start -p 8081",
+    "lint": "eslint ."
   },
   "dependencies": {
     "cookie": "^1.0.2",
@@ -17,11 +18,12 @@
     "universal-cookie": "^8.0.1"
   },
   "devDependencies": {
-    "eslint": "^7.19.0",
+    "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-next": "^0.0.0",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0"
   }

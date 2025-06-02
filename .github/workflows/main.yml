@@ -34,6 +34,6 @@ jobs:
         run: npm install
         working-directory: notes-app-back-end
 
-      - name: Run tests
+      - name: Run Jest tests
         run: npm test
         working-directory: notes-app-back-end
