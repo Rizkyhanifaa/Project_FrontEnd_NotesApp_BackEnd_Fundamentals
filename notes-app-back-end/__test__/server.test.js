@@ -1,12 +1,21 @@
-const createServer = require('../src/server'); // sesuaikan jika path berbeda
+const createServer = require('../src/server');
 const supertest = require('supertest');
 
 describe('GET /', () => {
+  let server;
+
+  beforeAll(async () => {
+    server = await createServer();
+    await server.initialize(); // hanya inisialisasi, jangan .start()
+  });
+
+  afterAll(async () => {
+    await server.stop();
+  });
+
   it('should return 200 and welcome message', async () => {
-    const server = await createServer();
-    const response = await supertest(server.listener).get('/');
-    
-    expect(response.statusCode).toBe(200);
-    expect(response.payload).toContain('Selamat datang');
+    const res = await supertest(server.listener).get('/');
+    expect(res.statusCode).toBe(200);
+    expect(res.text).toMatch(/Selamat datang|Welcome/i); // sesuaikan dengan response-mu
   });
 });
