@@ -39,8 +39,9 @@ jobs:
         working-directory: notes-app-back-end
 
       - name: Run Jest tests
-        run: npx jest
+        run: npx jest --coverage
         working-directory: notes-app-back-end
+  
   frontend-tests:
     runs-on: ubuntu-latest
     name: Frontend Tests
@@ -59,5 +60,5 @@ jobs:
         working-directory: notes-app-frontend
 
       - name: Run Frontend Tests
-        run: npm test -- --watchAll=false
+        run: npm test -- --coverage
         working-directory: notes-app-frontend
