@@ -16,7 +16,7 @@ RUN npm run build
 FROM node:22-alpine AS runner
 
 # Install tini for proper signal handling
-RUN apk add --no-cache tini
+RUN apk add --no-cache tini bash
 
 # Set working directory
 WORKDIR /app
@@ -24,13 +24,13 @@ WORKDIR /app
 # Copy only necessary production files
 COPY package.json package-lock.json* pnpm-lock.yaml* ./
 RUN \
-  if [ -f pnpm-lock.yaml ]; then \
+if [ -f pnpm-lock.yaml ]; then \
     npm install -g pnpm && pnpm install --prod; \
-  elif [ -f package-lock.json ]; then \
+elif [ -f package-lock.json ]; then \
     npm ci --omit=dev; \
-  else \
+else \
     npm install --omit=dev; \
-  fi
+fi
 
 # Copy built app and config
 COPY --from=builder /app/.next ./.next
@@ -38,7 +38,7 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
 
 # Set environment variables
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 # Use tini as the init system
 ENTRYPOINT ["/sbin/tini", "--"]
@@ -48,3 +48,4 @@ EXPOSE 8080
 
 # Start the app directly to ensure it receives shutdown signals
 CMD ["node_modules/.bin/next", "start", "--port", "8080"]
+
