@@ -2,9 +2,9 @@ name: Node.js CI for Hapi Backend
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   backend-tests:
@@ -41,7 +41,7 @@ jobs:
       - name: Run Jest tests
         run: npx jest --coverage
         working-directory: notes-app-back-end
-  
+
   frontend-tests:
     runs-on: ubuntu-latest
     name: Frontend Tests
@@ -62,4 +62,20 @@ jobs:
       - name: Run Frontend Tests
         run: npm test -- --coverage
         working-directory: notes-app-frontend
-
+  deploy-to-vps:
+    needs: frontend-tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy ke VPS pakai SSH
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: 20.121.44.37
+          username: arxcbd
+          password: Jhonbandit31!
+          script: |
+            cd /home/arxcbd/Project_FrontEnd_NotesApp_BackEnd_Fundamentals/notes-app-frontend
+            git pull origin main
+            docker stop notes-frontend || true
+            docker rm notes-frontend || true
+            docker build -t notes-app-frontend .
+            docker run -d -p 8080:8080 --name notes-frontend notes-app-frontend
