@@ -66,16 +66,18 @@ jobs:
     needs: frontend-tests
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy ke VPS pakai SSH 
+      - name: Deploy ke VPS pakai SSH
         uses: appleboy/ssh-action@v0.1.7
         with:
           host: 20.121.44.37
           username: arxcbd
-          password: Jhonbandit13!
+          password: Jhonbandit31!
           script: |
+            git config --global --add safe.directory /home/arxcbd/Project_FrontEnd_NotesApp_BackEnd_Fundamentals
             cd /home/arxcbd/Project_FrontEnd_NotesApp_BackEnd_Fundamentals/notes-app-frontend
             git pull origin main
             docker stop notes-frontend || true
             docker rm notes-frontend || true
             docker build -t notes-app-frontend .
             docker run -d -p 8080:8080 --name notes-frontend notes-app-frontend
+
