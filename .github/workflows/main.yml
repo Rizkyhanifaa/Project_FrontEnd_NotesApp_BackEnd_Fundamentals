@@ -62,3 +62,4 @@ jobs:
       - name: Run Frontend Tests
         run: npm test -- --coverage
         working-directory: notes-app-frontend
+
