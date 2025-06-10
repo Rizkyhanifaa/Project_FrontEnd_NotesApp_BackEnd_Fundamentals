@@ -71,7 +71,7 @@ jobs:
         with:
           host: 20.121.44.37
           username: arxcbd
-          password: Jhonbandit31!
+          password: Jhonbandit13!
           script: |
             cd /home/arxcbd/Project_FrontEnd_NotesApp_BackEnd_Fundamentals/notes-app-frontend
             git pull origin main
