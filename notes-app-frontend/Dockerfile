@@ -47,5 +47,5 @@ ENTRYPOINT ["/sbin/tini", "--"]
 EXPOSE 8080
 
 # Start the app directly to ensure it receives shutdown signals
-CMD ["node_modules/.bin/next", "start", "--port", "8080"]
+CMD ["node_modules/.bin/next", "start", "-H", "0.0.0.0", "-p", "8080"]
 

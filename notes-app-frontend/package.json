@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -H 0.0.0.0",
     "build": "next build",
-    "start": "next start -p 8081",
+    "start": "next start -H 0.0.0.0 -p 8080",
     "lint": "eslint .",
     "test": "jest"
   },
