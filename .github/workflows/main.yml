@@ -77,11 +77,11 @@ jobs:
             git config --global --add safe.directory /home/arxcbd/Project_FrontEnd_NotesApp_BackEnd_Fundamentals
             cd /home/arxcbd/Project_FrontEnd_NotesApp_BackEnd_Fundamentals/notes-app-frontend || exit 1
             git pull origin main
-            sudo docker stop notes-frontend || true
-            sudo docker rm notes-frontend || true
-            sudo docker build --pull -t notes-app-frontend .
-            sudo docker run -d -p 8080:8080 --name notes-frontend notes-app-frontend
+            docker stop notes-frontend || true
+            docker rm notes-frontend || true
+            docker build --pull -t notes-app-frontend .
+            docker run -d -p 8080:8080 --name notes-frontend notes-app-frontend
             sleep 3
-            sudo docker ps -a
-            sudo docker logs notes-frontend || true
+            docker ps -a
+            docker logs notes-frontend || true
             echo "✅ Done deploy."
