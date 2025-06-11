@@ -73,6 +73,7 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           password: ${{ secrets.VPS_PASSWORD }}
           script: |
+            echo "🚀 Start deploy..."
             git config --global --add safe.directory /home/arxcbd/Project_FrontEnd_NotesApp_BackEnd_Fundamentals
             cd /home/arxcbd/Project_FrontEnd_NotesApp_BackEnd_Fundamentals/notes-app-frontend
             git pull origin main
@@ -80,3 +81,4 @@ jobs:
             sudo docker rm notes-frontend || true
             sudo docker build -t notes-app-frontend .
             sudo docker run -d -p 8080:8080 --name notes-frontend notes-app-frontend
+            echo "✅ Done deploy."
