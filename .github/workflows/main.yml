@@ -73,7 +73,7 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           password: ${{ secrets.VPS_PASSWORD }}
           script: |
-            echo "🚀 Start deploy..."
+            echo "Start deploy"
             git config --global --add safe.directory /home/arxcbd/Project_FrontEnd_NotesApp_BackEnd_Fundamentals
             cd /home/arxcbd/Project_FrontEnd_NotesApp_BackEnd_Fundamentals/notes-app-frontend || exit 1
             git pull origin main
@@ -84,4 +84,4 @@ jobs:
             sleep 3
             docker ps -a
             docker logs notes-frontend || true
-            echo "✅ Done deploy."
+            echo "Done deploy."
