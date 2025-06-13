@@ -2,6 +2,7 @@ const { addNoteHandler, getAllNotesHandler, getNoteByIdHandler, editNoteByIdHand
 
 const routes = [
     {
+        // Route untuk homepage
         method: 'GET',
         path: '/',
         handler: (request, h) => {
