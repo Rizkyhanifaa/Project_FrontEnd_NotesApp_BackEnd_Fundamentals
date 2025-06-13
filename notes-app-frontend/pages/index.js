@@ -41,7 +41,7 @@ class Home extends Component {
     return (
       <div>
         <Head>
-          <title>Note's Apps</title>
+          <title>Notes Apps</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <AnnounceBar />
